@@ -14,14 +14,19 @@ autoreconf -vfi
 
 cd ../
 
-sudo apt install libsane-dev
+sudo apt install libsane-dev libtool-bin libusb-dev
 
 debuild -tc
 
-This will generate a debian package in ../ named something like 
+Dont worry if you see a "debsign: gpg error occurred!  Aborting....debuild: fatal error at line 1295:running debsign failed" line at the end. That's normal.
 
-../scangearmp-common_2.30-1_amd64.deb
+This will generate a debian package in ../ named something like ../scangearmp-common_2.30-1_amd64.deb
 
 Install with:
 
 sudo dpkg -i ../scangearmp-common_2.30-1_amd64.deb
+
+Test with:
+scanimage -L
+
+If successful, it will tell you that: "device `pixma:04A91795_1019CD' is a CANON Canon PIXMA G2000 multi-function peripheral"
