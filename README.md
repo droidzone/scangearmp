@@ -14,6 +14,8 @@ autoreconf -vfi
 
 cd ../
 
+sudo apt install libsane-dev
+
 debuild -tc
 
 This will generate a debian package in ../ named something like 
